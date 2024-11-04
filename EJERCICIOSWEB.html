@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios de JavaScript</h1>
+    <button onclick="calcularDiasParaCumple()">Días para el próximo Cumpleaños</button>
+    <button onclick="elevarNumero()">Elevar Número</button>
+    <button onclick="buscarEnArray()">Buscar en Array</button>
+    <button onclick="agregarAlInicio()">Agregar al Inicio</button> 
+    <button onclick="agregarAlFinal()">Agregar al Final</button>
+    
+    <br>
+    <br>
+    <div id="resultado"></div>
+
+    <script>
+        const elementos = ["Prueba", "Paso", "Leche", "Café", "HTML", "Java", "JS", "CSS", "Casa"];
+
+        function calcularDiasParaCumple() {
+            let fechaActual = new Date();
+            let fechaCumple = new Date("2025-05-22");
+            let diasRestantes = Math.floor((fechaCumple - fechaActual) / (1000 * 60 * 60 * 24));
+            document.getElementById("resultado").innerHTML = `Faltan ${diasRestantes} días para tu próximo cumpleaños`;
+        }
+
+        function elevarNumero() {
+            const base = parseFloat(prompt("Ingresa la base:"));
+            const exponente = parseFloat(prompt("Ingresa el exponente:"));
+            const resultado = Math.pow(base, exponente);
+            document.getElementById('resultado').innerText = `${base} elevado a ${exponente} es ${resultado}.`;
+        }
+
+        function buscarEnArray() {
+            const busqueda = prompt("Ingresa el elemento a buscar:");
+            const resultado = elementos.includes(busqueda) ? "¡Elemento encontrado!" : "Elemento no encontrado.";
+            document.getElementById('resultado').innerText = resultado;
+        }
+
+        function agregarAlInicio() {
+            const nuevoElemento = prompt("Ingresa el nuevo elemento:");
+            elementos.unshift(nuevoElemento);
+            document.getElementById('resultado').innerText = `Elemento ${nuevoElemento} agregado al inicio del array.`;
+        }
+
+        function agregarAlFinal() {
+            const nuevoElemento = prompt("Ingresa el nuevo elemento:");
+            elementos.push(nuevoElemento);
+            document.getElementById('resultado').innerText = `Elemento ${nuevoElemento} agregado al final del array.`;
+        }
+    </script>
+</body>
+</html>
